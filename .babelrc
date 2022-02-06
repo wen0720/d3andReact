@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": false,
+      "loose": false, // 預設就是 false 的樣子
+      "modules": false
+    }],
+    "@babel/preset-react"
+  ]
+}
