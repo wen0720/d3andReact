@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     index: './js/index.js',
     app1: './js/app1.js',
+    faced3: './js/faced3.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -39,6 +40,12 @@ module.exports = {
       filename: 'app1.html',
       chunks: ['app1'],
       title: '第一個 react & d3',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'faced3.html',
+      chunks: ['faced3'],
+      title: 'react & d3 做一個笑臉',
     }),
   ],
   devServer: {
