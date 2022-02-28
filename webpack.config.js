@@ -10,7 +10,7 @@ module.exports = {
   entry: {
     index: './js/index.js',
     app1: './js/app1.js',
-    faced3: './js/faced3.js',
+    faced3: './js/face/faced3.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
