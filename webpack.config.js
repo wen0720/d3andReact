@@ -11,6 +11,8 @@ module.exports = {
     index: './js/index.js',
     app1: './js/app1.js',
     faced3: './js/face/faced3.js',
+    cssColor: './js/cssColor.js',
+    interactMouse: './js/interactMouse.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -46,6 +48,18 @@ module.exports = {
       filename: 'faced3.html',
       chunks: ['faced3'],
       title: 'react & d3 做一個笑臉',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'cssColor.html',
+      chunks: ['cssColor'],
+      title: 'css Color 表',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'interactMouse.html',
+      chunks: ['interactMouse'],
+      tile: 'interactMouse',
     }),
   ],
   devServer: {
