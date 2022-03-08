@@ -13,6 +13,7 @@ module.exports = {
     faced3: './js/face/faced3.js',
     cssColor: './js/cssColor.js',
     interactMouse: './js/interactMouse.js',
+    barchart: './js/barchart.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -59,7 +60,13 @@ module.exports = {
       template: 'html/template.html',
       filename: 'interactMouse.html',
       chunks: ['interactMouse'],
-      tile: 'interactMouse',
+      title: 'interactMouse',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'barchart.html',
+      chunks: ['barchart'],
+      title: 'barchart',
     }),
   ],
   devServer: {

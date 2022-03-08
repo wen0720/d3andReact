@@ -11,8 +11,8 @@ const fetchText = async (url) => {
 
 const url = 'https://gist.githubusercontent.com/ml-paperWen/ace0b4abb5bc6f87845edaefc5941014/raw/csscolor.csv'
 
-const width = 960;
-const height = 600;
+const width = window.innerWidth;
+const height = window.innerHeight;
 const pieArc = d3.arc()
   .innerRadius(0)
   .outerRadius(width)
@@ -68,7 +68,6 @@ const App = () => {
       }
     </g>
   </svg>)
-  // return data.map((d) => <p style={{ color: d['RGB hex value'] }}>{ d.Keyword }</p>)
 }
 
 const rootElement = document.getElementById('app');
