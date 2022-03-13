@@ -13,7 +13,7 @@ module.exports = {
     faced3: './js/face/faced3.js',
     cssColor: './js/cssColor.js',
     interactMouse: './js/interactMouse.js',
-    barchart: './js/barchart.js',
+    barchart: './js/barchart/barchart.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
