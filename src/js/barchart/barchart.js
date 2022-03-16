@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styled from 'styled-components';
 import { arc, pie, scaleBand, scaleLinear, max } from 'd3';
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
@@ -9,12 +10,13 @@ import { Marks } from './Marks';
 const width = 960;
 const height = 500;
 const margin = {
-  top: 20, left: 120, bottom: 20, right: 20,
+  top: 20, left: 120, bottom: 80, right: 20,
 };
 const innerHeight = height - margin.top - margin.bottom;
 const innerWidth = width - margin.left - margin.right;
 
-const App = () => {
+
+const AppComponent = ({ className }) => {
   const data = useData();
 
   if (!data) {
@@ -27,6 +29,11 @@ const App = () => {
   const yScale = scaleBand()
     .domain(data.map(yValue))
     .range([0, innerHeight])
+    .paddingInner(0.4)
+    .paddingOuter(0.2)
+
+  // paddingInner 指的是長條圖之間的 padding
+  // paddingOuter 指的是最旁邊兩個長條圖與圖表之間的 padding
 
   // scaleBand 似乎沒有 ticks
   console.log(yScale.domain());
@@ -41,16 +48,26 @@ const App = () => {
   return (<svg
     viewBox="0 0 960 500"
     style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
-    width={width} height={height}>
+    width={width} height={height}
+    className={className}>
     <g transform={`translate(${margin.left}, ${margin.top})`}>
       {/* x 軸 */}
       <AxisBottom xScale={xScale} innerHeight={innerHeight} />
       {/* y 軸 */}
       <AxisLeft yScale={yScale} />
+      <text className="label" x={innerWidth / 2} y={innerHeight + 60} textAnchor="middle" >Population</text>
       <Marks data={data} yScale={yScale} xScale={xScale} yValue={yValue} xValue={xValue} />
     </g>
   </svg>)
 }
+
+const App = styled(AppComponent)`
+  .label {
+    font-size: 24px;
+    font-weight: bold;
+    fill: #8e8883;
+  }
+`
 
 const rootElement = document.getElementById('app');
 ReactDom.render(<App />, rootElement);

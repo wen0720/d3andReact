@@ -1,8 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 
-export const AxisBottom = ({ xScale, innerHeight }) => {
+
+const AxisBottomComponent = ({ xScale, innerHeight, className }) => {
   return xScale.ticks().map((tickValue, idx) => (
     <g key={idx}
+      className={className}
       transform={`translate(${xScale(tickValue)}, 0)`}>
       <line
         x1="0" // 實際上預設就是 0，可以刪掉
@@ -17,3 +20,12 @@ export const AxisBottom = ({ xScale, innerHeight }) => {
     </g>
   ))
 };
+
+export const AxisBottom = styled(AxisBottomComponent)`
+  line {
+    stroke: #c0c0bb;
+  }
+  text {
+    fill: #8e8883;
+  }
+`
