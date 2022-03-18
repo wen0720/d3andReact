@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const AxisBottomComponent = ({ xScale, innerHeight, className }) => {
+const AxisBottomComponent = ({ xScale, innerHeight, tickformat, className }) => {
   return xScale.ticks().map((tickValue, idx) => (
     <g key={idx}
       className={className}
@@ -16,7 +16,7 @@ const AxisBottomComponent = ({ xScale, innerHeight, className }) => {
       <text
         y={innerHeight}
         dy="16px"
-        style={{ textAnchor: 'middle' }}>{tickValue}</text>
+        style={{ textAnchor: 'middle' }}>{tickformat(tickValue)}</text>
     </g>
   ))
 };

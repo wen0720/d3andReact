@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
-import { arc, pie, scaleBand, scaleLinear, max } from 'd3';
+import { arc, pie, scaleBand, scaleLinear, max, format } from 'd3';
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
@@ -52,11 +52,14 @@ const AppComponent = ({ className }) => {
     className={className}>
     <g transform={`translate(${margin.left}, ${margin.top})`}>
       {/* x 軸 */}
-      <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+      <AxisBottom xScale={xScale} innerHeight={innerHeight}
+        tickformat={(v) => format('.2s')(v).replace('G', 'B')} />
       {/* y 軸 */}
       <AxisLeft yScale={yScale} />
       <text className="label" x={innerWidth / 2} y={innerHeight + 60} textAnchor="middle" >Population</text>
-      <Marks data={data} yScale={yScale} xScale={xScale} yValue={yValue} xValue={xValue} />
+      <Marks
+        data={data} yScale={yScale} xScale={xScale} yValue={yValue} xValue={xValue}
+        tickformat={(v) => format('.2s')(v).replace('G', 'B')} />
     </g>
   </svg>)
 }
