@@ -14,6 +14,7 @@ module.exports = {
     cssColor: './js/cssColor.js',
     interactMouse: './js/interactMouse.js',
     barchart: './js/barchart/barchart.js',
+    scatterplot: './js/scatterplot/scatterplot.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -68,6 +69,12 @@ module.exports = {
       chunks: ['barchart'],
       title: 'barchart',
     }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'scatterplot.html',
+      chunks: ['scatterplot'],
+      title: 'scatterplot',
+    })
   ],
   devServer: {
     port: 3000,
