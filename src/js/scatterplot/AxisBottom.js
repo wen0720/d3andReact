@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const AxisBottomComponent = ({ className, xScale, innerHeight }) => {
   return xScale.ticks().map((dTick, idx) => {
-    console.log(dTick);
+    // console.log(dTick);
     // xScale.ticks() 給的是在 x 軸上數值的刻度數，要在帶入 sScale 找到 px 值
     return <g
       key={idx} className={className}
