@@ -15,6 +15,7 @@ module.exports = {
     interactMouse: './js/interactMouse.js',
     barchart: './js/barchart/barchart.js',
     scatterplot: './js/scatterplot/scatterplot.js',
+    timeTempture: './js/timeTempture/tempture.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -74,7 +75,13 @@ module.exports = {
       filename: 'scatterplot.html',
       chunks: ['scatterplot'],
       title: 'scatterplot',
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'timeTempture.html',
+      chunks: ['timeTempture'],
+      title: 'timeTempture',
+    }),
   ],
   devServer: {
     port: 3000,
