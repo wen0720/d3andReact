@@ -8,8 +8,7 @@ const MarksComponent = ({ className, xScale, yScale, xValue, yValue, data }) => 
         <circle
           cx={xScale(d.timestamp)}
           cy={yScale(d.temperature)}
-          r="10"
-          stroke="black">
+          r="10">
         </circle>
       </g>
     );
@@ -17,5 +16,8 @@ const MarksComponent = ({ className, xScale, yScale, xValue, yValue, data }) => 
 }
 
 export const Marks = styled(MarksComponent)`
-
+  circle {
+    stroke: #73DB84;
+    fill: #ccc;
+  }
 `;
