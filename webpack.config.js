@@ -16,10 +16,12 @@ module.exports = {
     barchart: './js/barchart/barchart.js',
     scatterplot: './js/scatterplot/scatterplot.js',
     timeTempture: './js/timeTempture/tempture.js',
+    color: './js/color/color.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'assets/js/[name].[contenthash:8].js',
+    chunkFilename: 'assets/js/[name]-chunk',
     publicPath,
   },
   devtool: DEV_MODE ? 'inline-source-map' : false,
@@ -32,6 +34,31 @@ module.exports = {
         },
       }
     ],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 100,
+      minChunks: 1,
+      automaticNameDelimiter: '-',
+      name: false,
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          chunks: 'all',
+          minChunks: 2,
+          maxInitialRequests: 5,
+          minSize: 0,
+        },
+        vendors: {
+          name: 'vendors',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/]/,
+          priority: 10,
+          enforce: true,
+        },
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -81,6 +108,12 @@ module.exports = {
       filename: 'timeTempture.html',
       chunks: ['timeTempture'],
       title: 'timeTempture',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'color.html',
+      chunks: ['color'],
+      title: 'color',
     }),
   ],
   devServer: {
