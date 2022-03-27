@@ -47,6 +47,8 @@ const App = () => {
         <Marks
           xScale={xScale}
           yScale={yScale}
+          xValue={xValue}
+          yValue={yValue}
           data={data}/>
       </g>
     </svg>
