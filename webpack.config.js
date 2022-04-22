@@ -16,10 +16,11 @@ module.exports = {
     barchart: './js/barchart/barchart.js',
     scatterplot: './js/scatterplot/scatterplot.js',
     timeTempture: './js/timeTempture/tempture.js',
-    worldmap: './js/worldmap/worldmap.js',
-    worldmapTemplate: './js/worldmapTemplate/worldmapTemplate.js',
-    taiwanmaptest: './js/taiwanmaptest/taiwanmaptest.js',
+    // worldmap: './js/worldmap/worldmap.js',
+    // worldmapTemplate: './js/worldmapTemplate/worldmapTemplate.js',
+    // taiwanmaptest: './js/taiwanmaptest/taiwanmaptest.js',
     color: './js/color/color.js',
+    linechart: './js/linechart/linechart.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -120,22 +121,28 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'html/template.html',
-      filename: 'worldmap.html',
-      chunks: ['worldmap'],
-      title: 'worldmap',
+      filename: 'linechart.html',
+      chunks: ['linechart'],
+      title: 'linechart'
     }),
-    new HtmlWebpackPlugin({
-      template: 'html/template.html',
-      filename: 'worldmapTemplate.html',
-      chunks: ['worldmapTemplate'],
-      title: 'worldmapTemplate',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'html/template.html',
-      filename: 'taiwanmaptest.html',
-      chunks: ['taiwanmaptest'],
-      title: 'taiwanmaptest',
-    })
+    // new HtmlWebpackPlugin({
+    //   template: 'html/template.html',
+    //   filename: 'worldmap.html',
+    //   chunks: ['worldmap'],
+    //   title: 'worldmap',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   template: 'html/template.html',
+    //   filename: 'worldmapTemplate.html',
+    //   chunks: ['worldmapTemplate'],
+    //   title: 'worldmapTemplate',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   template: 'html/template.html',
+    //   filename: 'taiwanmaptest.html',
+    //   chunks: ['taiwanmaptest'],
+    //   title: 'taiwanmaptest',
+    // })
   ],
   devServer: {
     port: 3000,
