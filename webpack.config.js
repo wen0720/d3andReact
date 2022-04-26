@@ -18,7 +18,7 @@ module.exports = {
     timeTempture: './js/timeTempture/tempture.js',
     // worldmap: './js/worldmap/worldmap.js',
     // worldmapTemplate: './js/worldmapTemplate/worldmapTemplate.js',
-    // taiwanmaptest: './js/taiwanmaptest/taiwanmaptest.js',
+    taiwanmaptest: './js/taiwanmaptest/taiwanmaptest.js',
     color: './js/color/color.js',
     linechart: './js/linechart/linechart.js'
   },
@@ -137,12 +137,12 @@ module.exports = {
     //   chunks: ['worldmapTemplate'],
     //   title: 'worldmapTemplate',
     // }),
-    // new HtmlWebpackPlugin({
-    //   template: 'html/template.html',
-    //   filename: 'taiwanmaptest.html',
-    //   chunks: ['taiwanmaptest'],
-    //   title: 'taiwanmaptest',
-    // })
+    new HtmlWebpackPlugin({
+      template: 'html/template.html',
+      filename: 'taiwanmaptest.html',
+      chunks: ['taiwanmaptest'],
+      title: 'taiwanmaptest',
+    })
   ],
   devServer: {
     port: 3000,
